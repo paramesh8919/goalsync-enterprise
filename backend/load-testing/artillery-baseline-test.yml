@@ -1,0 +1,36 @@
+# GoalSync Enterprise Platform — Baseline Load Test (Artillery alternative to k6)
+# Install:  npm install -g artillery
+# Run:      artillery run load-testing/artillery-baseline-test.yml
+# Report:   artillery run --output report.json load-testing/artillery-baseline-test.yml && artillery report report.json
+
+config:
+  target: "http://localhost:5000"
+  phases:
+    - duration: 60          # run continuously for 1 minute
+      arrivalRate: 100      # ~100 new virtual users per second (baseline load)
+      name: "Baseline load - 100 concurrent users"
+  defaults:
+    headers:
+      Content-Type: "application/json"
+  processor: "./artillery-functions.js"
+
+scenarios:
+  - name: "Login -> List goals -> Dashboard summary"
+    flow:
+      - post:
+          url: "/api/auth/login"
+          json:
+            email: "employee@goalsync.com"
+            password: "Password123!"
+          capture:
+            - json: "$.token"
+              as: "token"
+      - get:
+          url: "/api/goals"
+          headers:
+            Authorization: "Bearer {{ token }}"
+      - get:
+          url: "/api/dashboard/summary"
+          headers:
+            Authorization: "Bearer {{ token }}"
+      - think: 1

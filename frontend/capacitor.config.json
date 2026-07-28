@@ -1,0 +1,14 @@
+{
+  "appId": "com.goalsync.enterprise",
+  "appName": "GoalSync",
+  "webDir": "public",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "https://REPLACE-WITH-YOUR-VERCEL-URL.vercel.app",
+    "cleartext": false,
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}
