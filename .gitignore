@@ -1,0 +1,32 @@
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Next.js build
+.next/
+out/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# Prisma
+**/.cache/
+
+# Android / Gradle
+frontend/android/.gradle/
+frontend/android/build/
+frontend/android/.idea/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test reports generated files
+*.xlsx
