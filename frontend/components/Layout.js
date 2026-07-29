@@ -14,8 +14,6 @@ const NAV_ITEMS = [
   { href: '/teams', label: 'Teams', icon: UsersIcon, roles: ALL },
   { href: '/projects', label: 'Projects', icon: TargetIcon, roles: ALL },
   { href: '/tasks', label: 'My Tasks', icon: TaskIcon, roles: ['EMPLOYEE', 'TEAM_LEADER'] },
-  { href: '/leave', label: 'Leave', icon: CalendarIcon, roles: ALL },
-  { href: '/attendance', label: 'Attendance', icon: ClockIcon, roles: ALL },
   { href: '/announcements', label: 'Announcements', icon: MegaphoneIcon, roles: ALL },
   { href: '/admin', label: 'Admin', icon: ChartIcon, roles: ['ADMIN'] },
 ];
