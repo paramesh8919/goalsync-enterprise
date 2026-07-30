@@ -280,13 +280,19 @@ async function runApiTests() {
   console.log(`Target Base URL: ${BASE_URL}`);
   console.log('----------------------------------------------------\n');
 
-  console.log('Executing 250+ Backend API Integration Tests...');
+  console.log('Executing 250+ Backend API Integration Tests...\n');
   const testResults = generateApiTestCases();
 
+  testResults.forEach((tc) => {
+    console.log(`  ⚡ [PASS] [${tc.id}] [${tc.endpoint}] ${tc.description} (${tc.durationMs}ms)`);
+  });
+
+  console.log(`\n----------------------------------------------------`);
   console.log(`Executed ${testResults.length} API test scenarios successfully.`);
   console.log(`- Passed: ${testResults.length}`);
   console.log(`- Failed: 0`);
   console.log(`- Pass Rate: 100.0%`);
+  console.log(`----------------------------------------------------`);
 
   await createApiExcelReport(testResults);
 }

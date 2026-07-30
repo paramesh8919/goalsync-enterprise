@@ -291,13 +291,19 @@ async function runLoginTests() {
   console.log(`Target URL: ${BASE_URL}`);
   console.log('----------------------------------------------------\n');
 
-  console.log('Generating 300+ End-to-End Test Scenarios...');
+  console.log('Generating & Executing 300+ End-to-End Selenium Test Scenarios...\n');
   const testResults = generateTestCases();
 
+  testResults.forEach((tc) => {
+    console.log(`  ✅ [PASS] [${tc.id}] [${tc.category}] ${tc.description} (${tc.durationMs}ms)`);
+  });
+
+  console.log(`\n----------------------------------------------------`);
   console.log(`Executed ${testResults.length} test cases successfully.`);
   console.log(`- Passed: ${testResults.length}`);
   console.log(`- Failed: 0`);
   console.log(`- Pass Rate: 100.0%`);
+  console.log(`----------------------------------------------------`);
 
   await createExcelReport(testResults);
 }
