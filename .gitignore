@@ -28,5 +28,8 @@ frontend/android/.idea/
 .DS_Store
 Thumbs.db
 
+# Build outputs
+frontend/dist/
+
 # Test reports generated files
 *.xlsx

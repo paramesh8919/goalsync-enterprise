@@ -46,7 +46,7 @@ export default function Layout({ children, title }) {
               <Avatar name={user.name} />
               <div className="min-w-0">
                 <p className="text-sm font-medium truncate">{user.name}</p>
-                <p className="text-xs text-white/50 capitalize">{user.role.replace('_',' ').toLowerCase()}</p>
+                <p className="text-xs text-white/50 capitalize">{user.role.replace('_', ' ').toLowerCase()}</p>
               </div>
             </div>
             <button
@@ -95,7 +95,7 @@ export default function Layout({ children, title }) {
                   <Avatar name={user.name} />
                   <div className="min-w-0">
                     <p className="text-sm font-medium truncate">{user.name}</p>
-                    <p className="text-xs text-white/50 capitalize">{user.role.replace('_',' ').toLowerCase()}</p>
+                    <p className="text-xs text-white/50 capitalize">{user.role.replace('_', ' ').toLowerCase()}</p>
                   </div>
                 </div>
                 <button onClick={logout} className="mt-4 w-full text-left px-2 py-2 rounded-lg text-sm text-white/70 hover:bg-white/10">
@@ -125,9 +125,8 @@ function SidebarLink({ item, active }) {
   return (
     <Link
       href={item.href}
-      className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-        active ? 'bg-primary text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
-      }`}
+      className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${active ? 'bg-primary text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
+        }`}
     >
       <Icon />
       {item.label}

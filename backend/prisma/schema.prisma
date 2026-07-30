@@ -30,10 +30,10 @@ enum ApprovalStatus {
 }
 
 enum ProjectStatus {
-  DRAFT               // being assembled by Team Leader, not yet submitted
-  PENDING_APPROVAL    // submitted, awaiting Manager + Admin decisions
-  ACTIVE              // both Manager and Admin approved
-  REJECTED            // either Manager or Admin rejected — terminal, cannot resubmit
+  DRAFT // being assembled by Team Leader, not yet submitted
+  PENDING_APPROVAL // submitted, awaiting Manager + Admin decisions
+  ACTIVE // both Manager and Admin approved
+  REJECTED // either Manager or Admin rejected — terminal, cannot resubmit
   COMPLETED
   ON_HOLD
 }
@@ -308,7 +308,7 @@ model ProjectDocument {
   projectId    String
   project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   fileName     String
-  fileUrl      String   // path/URL to stored file (see storage notes in README)
+  fileUrl      String // path/URL to stored file (see storage notes in README)
   fileType     String?
   fileSize     Int?
   uploadedById String
@@ -447,8 +447,8 @@ model AuditLog {
   id        String   @id @default(uuid())
   userId    String?
   user      User?    @relation(fields: [userId], references: [id])
-  action    String   // e.g. "PROJECT_APPROVED", "USER_REJECTED"
-  entity    String   // e.g. "Project", "User"
+  action    String // e.g. "PROJECT_APPROVED", "USER_REJECTED"
+  entity    String // e.g. "Project", "User"
   entityId  String?
   metadata  Json?
   createdAt DateTime @default(now())
